@@ -49,7 +49,7 @@ class UserStateManager {
 		var hash = bcrypt.hashSync(password, saltRounds);
 		if (hash) {
 			db.users.addUser(username, hash, displayName, email, (err, user) => {
-				cb(null, user);
+				cb(err, user);
 			});
 		} else {
 			return cb(null, false);
@@ -62,17 +62,18 @@ class UserStateManager {
 		let responseObject = { success: false, message: "An error occurred. Please try again later."};
 
 		db.users.findByUsername(username, (err, user) => {
-			if (user) { return res.send({ success: false, message: "Username already in use."})}
-			if (err) { return res.send(responseObject) }
+			if (user) { return res.send({ success: false, message: "Username already in use." }); }
+			if (err) { return res.send(responseObject); }
 			this.addUser(username, password, email, displayName, (err, newUser) => {
 				if (newUser) {
-					req.logIn(newUser, (err) => {
-						if (err) { return next(err); }
+					req.logIn(newUser, (loginError) => {
+						if (loginError) { return next(loginError); }
 						responseObject.success = true;
 						responseObject.userState = self.makeSecure(newUser);
 						return res.send(responseObject);
-				  	})
+				  	});
 				} else {
+					console.log(err);
 					return res.send(responseObject);
 				}
 			});
@@ -87,10 +88,10 @@ class UserStateManager {
 				errorMessage: null
 			};
 
-		passport.authenticate('local', function(err, user, info) {
+		passport.authenticate('local', function(err, user) {
 		  	if (err) { return next(err); }
 		  	if (!user) {
-				responseObject.errorMessage = "username does not exist"
+				responseObject.errorMessage = "username does not exist";
 				return res.send(responseObject);
 			}
 		  	req.logIn(user, function(err) {

@@ -1,0 +1,33 @@
+{
+  "name": "N2Remp",
+  "description": "A boilerplate react/next/express application that already has basic core functionality built in.",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "NODE_ENV=production node server.js"
+  },
+  "dependencies": {
+    "@material-ui/core": "^3.1.1",
+    "@material-ui/icons": "^3.0.1",
+    "axios": "^0.18.0",
+    "bcrypt": "^3.0.1",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "jss": "latest",
+    "next": "7.0.0",
+    "next-images": "^1.0.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "prop-types": "latest",
+    "react": "16.5.2",
+    "react-dom": "16.5.2",
+    "react-jss": "latest",
+    "react-redux": "^5.0.1",
+    "redux": "^3.6.0",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-thunk": "^2.1.0"
+  },
+  "license": "ISC"
+}

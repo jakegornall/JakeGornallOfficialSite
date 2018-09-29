@@ -1,5 +1,5 @@
 {
-  "name": "N2Remp",
+  "name": "n2remp",
   "description": "A boilerplate react/next/express application that already has basic core functionality built in.",
   "version": "1.0.0",
   "scripts": {
@@ -29,5 +29,9 @@
     "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.1.0"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^5.6.1",
+    "eslint-config-google": "^0.10.0"
+  }
 }

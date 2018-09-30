@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Header from '../components/Header';
+import GlobalLoader from '../components/GlobalLoader'
 import {login} from '../reduxStore';
 
 import bkgImage from '../images/mountain-path.jpg';
@@ -12,7 +13,8 @@ const styles = {
 		backgroundImage: `url(${bkgImage})`,
 		backgroundPosition: "center",
 		backgroundSize: "cover",
-		height: "80vh"
+		height: "100vh",
+		paddingTop: 20
 	}
 };
 
@@ -25,11 +27,12 @@ class Index extends React.Component {
   render () {
 		const { classes } = this.props;
     return (
-			<div>
-				<section className={classes.landingSection}>
-					<Header />
-				</section>
-			</div>
+		<div>
+			<GlobalLoader />
+			<section className={classes.landingSection}>
+				<Header />
+			</section>
+		</div>
     )
   }
 }

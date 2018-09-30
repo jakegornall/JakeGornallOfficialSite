@@ -6,13 +6,6 @@ import { _login, _logout } from './actions/UserStateActions';
 import { GlobalStateReducer, InitialGlobalState } from './reducers/GlobalReducer';
 import { UserStateReducer, InitialUserState } from './reducers/UserStateReducer';
 
-const storeExports = {
-	enableGlobalLoader: _enableGlobalLoader,
-	disableGlobalLoader: _disableGlobalLoader,
-	login: _login,
-	logout: _logout
-}
-
 const InitialState = {
 	globalState: InitialGlobalState,
 	userState: InitialUserState

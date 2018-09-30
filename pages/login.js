@@ -1,10 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {login} from '../reduxStore';
 import SignInApp from '../components/SignInApp'
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-
-const store = require('../reduxStore')
 
 const containerStyle = {
 	position: "fixed",
@@ -15,7 +14,7 @@ const containerStyle = {
 
 class Index extends React.Component {
   static getInitialProps ({ reduxStore, req, query }) {
-		query.userState ? reduxStore.dispatch(store.login(query.userState)) : ''
+		query.userState ? reduxStore.dispatch(login(query.userState)) : ''
 		return {}
   }
 

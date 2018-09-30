@@ -20,6 +20,17 @@ const styles = {
 	menuButton: {
 	  	marginLeft: -12,
 	  	marginRight: 20,
+	},
+	appBar: {
+		background: 'transparent',
+		boxShadow: 'none'
+	},
+	dim: {
+		position: "absolute",
+		width: "100%",
+		height: "100%",
+		backgroundColor: "black",
+		opacity: .3
 	}
 };
 
@@ -30,7 +41,8 @@ class Header extends React.Component {
 		const greeting = userState.displayName ? `Hi, ${userState.displayName}!` : '';
      	return (
 			<div className={classes.root}>
-      			<AppBar position="fixed" color="inherit">
+      			<AppBar position="relative" color="primary" className={classes.appBar}>
+				  	<div className={classes.dim}></div>
         			<Toolbar>
           				<IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
             				<MenuIcon />

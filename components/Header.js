@@ -48,12 +48,12 @@ class Header extends React.Component {
             				<MenuIcon />
           				</IconButton>
           				<Typography variant="title" color="inherit" className={classes.grow}>
-            				Portfolio Site
+            				Jake Gornall, Web Developer
           				</Typography>
 						<Typography variant="caption" color="inherit">
 							{greeting}
           				</Typography>
-						<SignInButton />
+						<SignInButton variant="icon" />
           				<LogoutButton />
         			</Toolbar>
       			</AppBar>

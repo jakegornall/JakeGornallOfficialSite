@@ -38,7 +38,7 @@ class UserStateManager {
 
 	makeSecure(user) {
 		var newUser = Object.assign({}, user);
-		if (newUser) {
+		if (newUser.passHash) {
 			delete newUser.passHash;
 		}
 

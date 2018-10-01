@@ -24,19 +24,11 @@ app.prepare()
   });
 
   server.get('/login', (req, res) => {
-	return req.user ? res.redirect("/") : app.render(req, res, "/login", { userState: null });
+		return req.user ? res.redirect("/") : app.render(req, res, "/login", { userState: null });
   });
   server.post('/login', (req, res) => { userStateManager.loginHandler(req, res) });
-
   server.post('/signup', (req, res, next) => { userStateManager.signupHandler(req, res, next) });
-
-  server.post('/logout', (req, res) => {
-	req.logout();
-	req.session.destroy((err) => {
-		if (err) { return next(err); }
-		return res.send({ success: true, authenticated: req.isAuthenticated() });
-	});
-  });
+  server.post('/logout', (req, res, next) => { userStateManager.logoutHandler(req, res, next) });
 
   server.get('*', (req, res) => {
     return handle(req, res)

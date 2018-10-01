@@ -102,6 +102,14 @@ class UserStateManager {
 		  	});
 		})(req, res, next);
 	}
+
+	logoutHandler(req, res, next) {
+		req.logout();
+		req.session.destroy((err) => {
+			if (err) { return next(err); }
+			return res.send({ success: true, authenticated: req.isAuthenticated() });
+		});
+	}
 }
 
 exports.UserStateManager = UserStateManager;

@@ -2,10 +2,11 @@
 
 import { SheetsRegistry } from 'jss';
 import { createMuiTheme, createGenerateClassName } from '@material-ui/core/styles';
+import myTheme from './Theme'
 
 // A theme with custom primary and secondary color.
 // It's optional.
-const theme = createMuiTheme();
+const theme = createMuiTheme(myTheme);
 
 function createPageContext() {
   return {

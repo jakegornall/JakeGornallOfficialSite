@@ -6,13 +6,13 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 class SignInButton extends React.Component {
 	constructor(props) {
 		super(props);
-		
+
 		this.renderMaterialButton = this.renderMaterialButton.bind(this);
 	}
 	renderIconButton() {
 		return (
 			<IconButton href="/login">
-				<ExitToAppIcon style={{ color: "white" }} />
+				<ExitToAppIcon />
 			</IconButton>
 		)
 	}
@@ -30,7 +30,7 @@ class SignInButton extends React.Component {
 			switch (this.props.variant) {
 				case "icon":
 					return this.renderIconButton();
-				default: 
+				default:
 					return this.renderMaterialButton();
 			}
 		} else {
